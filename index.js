@@ -1,12 +1,13 @@
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import bodyParser, { urlencoded } from "body-parser";
+import bodyParser from "body-parser";
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = 3000;
 
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
